@@ -857,18 +857,21 @@ async function checkHongbaoBalance(hongbaoAccountAddress, expectedAmount) {
   }
 }
 
-function isWeChatBrowser() {
+function isInAppBrowser() {
   const ua = navigator.userAgent.toLowerCase();
+
+  // Detect WeChat in-app browser
   const isWeChat = ua.includes("micromessenger");
 
-  // Detect Telegram's in-app browser
+  // Detect Telegram in-app browser
   const isTelegram = typeof window.TelegramWebview !== 'undefined' ||
                      typeof window.TelegramWebviewProxy !== 'undefined' ||
                      typeof window.TelegramWebviewProxyProto !== 'undefined';
 
+  // Detect Twitter in-app browser
+  const isTwitter = ua.includes("twitter");
 
-
-  return isWeChat || isTelegram;
+  return isWeChat || isTelegram || isTwitter;
 }
 
 
