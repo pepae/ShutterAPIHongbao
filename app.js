@@ -857,7 +857,7 @@ async function checkHongbaoBalance(hongbaoAccountAddress, expectedAmount) {
   }
 }
 
-function isInAppBrowser() {
+function isWeChatBrowser() {
   const ua = navigator.userAgent.toLowerCase();
 
   // Detect WeChat in-app browser
